@@ -6,6 +6,7 @@ import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://astro-modern-personal-website.netlify.app',
-  integrations: [mdx(), sitemap(), tailwind()]
+  site: 'https://mhsaadatfar.dev',
+  integrations: [mdx(), sitemap(), tailwind()],
+  server: { port: 3001, host: true}
 });
