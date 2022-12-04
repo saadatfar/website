@@ -1,8 +1,8 @@
 {
-  "name": "Astro Modern Personal Website",
-  "description": "Astro Modern personal website template with Project Section, CV Section, Paginated Blog, Shop, RSS Feed, SEO Friendly, Visual themes and Responsive Desing.",
+  "name": "M.H.Saadatfar Personal Website",
+  "description": "M.H.Saadatfar Personal Website",
   "type": "module",
-  "version": "1.1.1",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "astro dev",
@@ -12,12 +12,14 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/image": "^0.12.0",
     "@astrojs/mdx": "^0.11.1",
     "@astrojs/rss": "^1.0.1",
     "@astrojs/sitemap": "^1.0.0",
     "@astrojs/tailwind": "^1.0.1",
     "astro": "^1.2.3",
-    "daisyui": "^2.27.0"
+    "daisyui": "^2.27.0",
+    "sharp": "^0.31.2"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.7"
