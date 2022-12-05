@@ -1,16 +1,24 @@
 ---
 import SvgIcon from "@components/Svg-Icon.astro";
 
-const { name, position, date, desc } = Astro.props;
+const { name, position, date, href } = Astro.props;
 ---
 
 <div
   class="border border-gray-200 rounded p-8 my-3 bg-white hover:shadow-xl transition ease-in-out hover:scale-[102%]"
 >
   <div class="grid grid-cols-3">
-    <h2 class="col-span-2 font-bold text-lg">
+    <h2 class="col-span-2 font-bold text-lg text-blue-800">
       <SvgIcon icon="briefcase-solid" />
-      {name}
+      {
+        href ? (
+          <a href={href} target="_blank">
+            {name}
+          </a>
+        ) : (
+          name 
+        )
+      }
     </h2>
     <div class="col-span-1 text-right">{date}</div>
   </div>
