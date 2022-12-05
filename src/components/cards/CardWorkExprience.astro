@@ -1,0 +1,21 @@
+---
+import SvgIcon from "../Svg-Icon.astro";
+
+const { name, position, date, desc } = Astro.props;
+---
+
+<div
+  class="border border-gray-200 rounded p-8 my-3 bg-white hover:shadow-xl transition ease-in-out hover:scale-[102%]"
+>
+  <div class="grid grid-cols-3">
+    <h2 class="col-span-2 font-bold text-lg">
+      <SvgIcon icon="briefcase-solid" />
+      {name}
+    </h2>
+    <div class="col-span-1 text-right">{date}</div>
+  </div>
+  <div class="font-semibold">{position}</div>
+  <div class="text-justify mt-2">
+    <slot />
+  </div>
+</div>

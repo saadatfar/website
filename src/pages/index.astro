@@ -1,50 +1,94 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import HorizontalCard from "../components/HorizontalCard.astro";
+import SvgIcon from "../components/Svg-Icon.astro";
+import CardWorkExprience from "../components/cards/CardWorkExprience.astro";
 
 const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
-  (a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf()
+  (a, b) =>
+    new Date(b.frontmatter.pubDate).valueOf() -
+    new Date(a.frontmatter.pubDate).valueOf()
 );
 
 const last_posts = posts.slice(0, 3);
 ---
 
 <BaseLayout>
-
-    <div class="pb-12 mt-5">
-      <div class="text-5xl font-bold">I'm M.H. Saadatfar</div>
-      <div class="text-3xl py-3 font-bold">Power Electronics Engineer, Full-Stack Developer</div>
-      <div class="py-2">
-        <text class="text-lg">
-          Being an engineer, I love building systems that work, no matter if they are devices, software, or even a company or a group of friends. I my view, If you approach everything in a systematic way, you will be able to learn, comprehend, and improve everything faster and more effectively.
-          </text
-        >
-      </div>
-      <div class="mt-8">
-        <a class="btn" href="mailto:mh.saadatfar@gmail.com" target="_blank"> Let's connect!</a>
-      </div>
+  <div class="pb-12 mt-5">
+    <div class="text-3xl py-3 font-bold">About Me</div>
+    <div class="py-2">
+      <text class="text-lg">
+        Being an engineer, I love building systems that work, no matter if they
+        are devices, software, or even a company or a group of friends. I my
+        view, If you approach everything in a systematic way, you will be able
+        to learn, comprehend, and improve everything faster and more
+        effectively.
+      </text>
     </div>
-
-    <div>
-      <div class="text-3xl w-full font-bold mb-2">My last projects {"</>"}</div>
+    <div class="mt-8">
+      <a class="btn" href="mailto:mh.saadatfar@gmail.com" target="_blank">
+        Let's connect!</a
+      >
     </div>
+  </div>
 
-    <HorizontalCard
-      title="Demo Project 1"
-      img="/post_img.webp"
-      desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-      url="#"
-      badge="NEW"
-    />
-    <div class="divider my-0"></div>
-    <HorizontalCard
+  <section class="mb-4">
+    <h1 class="text-2xl w-full font-bold mb-2">Work Experience</h1>
+    <CardWorkExprience
+      name="Mersateb Co."
+      date="Apr 2017 - Ongoing"
+      position="CTO, Co-Founder"
+    >
+      Mersateb Co. was founded in 2015 and expanded with the goal of developing
+      dermatology treatments based on radio frequency waves. It has become one
+      of the first 3 companies producing dermatology equipment in Iran in less
+      than 5 years. In addition, it expanded the design and production field to
+      other types of dermatology and gynecology devices. Our company is now a
+      manufacturer of 5 dermatology and gynecology products with over 40
+      employees.
+      <ul class="list-disk ml-6 mt-3" style="list-style: disc;">
+        <li>
+          Design and Production of one medical device per year on average in the
+          field of Dermatology and Gynecology
+        </li>
+        <li>Obtaining the ISO 13485 and Medical CE Certificate</li>
+        <li>
+          Over 1000 devices have been produced and sold. (The best-selling
+          dermatology plasma device in Iran)
+        </li>
+        <li>Export to 3 European countries.</li>
+        <li>Over 40 members of staff</li>
+      </ul>
+    </CardWorkExprience>
+    <CardWorkExprience
+      name="BMD Co. (BMD ULUSLARARASI MEDIKAL ŞIRKETI)"
+      date="Sep 2019 - Ongoing"
+      position="CTO, Co Founder"
+    >
+      BMD Co. is the branch of Mersateb Co. in Turkey.
+    </CardWorkExprience>
+  </section>
+
+  <div>
+    <div class="text-3xl w-full font-bold mb-2">My last projects {"</>"}</div>
+  </div>
+
+  <HorizontalCard
+    title="Demo Project 1"
+    img="/post_img.webp"
+    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    url="#"
+    badge="NEW"
+  />
+  <div class="divider my-0"></div>
+  <HorizontalCard
     title="Demo Project 2"
     img="/post_img.webp"
     desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
     url="#"
   />
-    <div class="divider my-0"></div>
-    <HorizontalCard
+  <div class="divider my-0"></div>
+  <HorizontalCard
     title="Demo Project 3"
     img="/post_img.webp"
     desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
@@ -52,13 +96,13 @@ const last_posts = posts.slice(0, 3);
     badge="FOSS"
   />
 
+  <div>
+    <div class="text-3xl w-full font-bold mb-5 mt-10">Latest from blog</div>
+  </div>
 
-    <div>
-      <div class="text-3xl w-full font-bold mb-5 mt-10">Latest from blog</div>
-    </div>
-
-    {
-      last_posts.map((post) => (
+  {
+    last_posts.map((post) => (
+      <>
         <HorizontalCard
           title={post.frontmatter.title}
           img={post.frontmatter.heroImage}
@@ -66,8 +110,8 @@ const last_posts = posts.slice(0, 3);
           url={post.url}
           target="_self"
         />
-        <div class="divider my-0"></div>
-      ))
-    }
-
+        <div class="divider my-0" />
+      </>
+    ))
+  }
 </BaseLayout>

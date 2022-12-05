@@ -1,0 +1,10 @@
+---
+export interface Props {
+  icon: string;
+}
+import InlineSvg from "./Inline-Svg.astro";
+const { icon } = Astro.props as Props;
+const path = `icons/${icon}`;
+---
+
+<div class="icon"><InlineSvg path={path} /></div>

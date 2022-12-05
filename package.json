@@ -19,6 +19,7 @@
     "@astrojs/tailwind": "^1.0.1",
     "astro": "^1.6.11",
     "daisyui": "^2.27.0",
+    "sass": "^1.56.1",
     "sharp": "^0.31.2"
   },
   "devDependencies": {
