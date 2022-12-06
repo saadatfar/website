@@ -1,0 +1,48 @@
+---
+import { Picture, Image } from "@astrojs/image/components";
+import SvgIcon from "@components/Svg-Icon.astro";
+const { title, img, date, url, badge, tags, target = "_blank" } = Astro.props;
+const imagePath = img
+  ? import(/* @vite-ignore */ `./../../assets/images/projects/${img}.webp`)
+  : null;
+---
+
+<div
+  class="mb-3 border border-gray-200 rounded bg-base-100 hover:shadow-xl transition ease-in-out hover:scale-[102%]"
+>
+  <a href={url} target={target}>
+    <div class="hero-content flex-col md:flex-row md:items-start">
+      {
+        img ? (
+          <div class="max-w-full md:max-w-[210px] flex">
+            <Picture
+              widths={[210, 300]}
+              sizes="(max-width: 768px) 300px, 210px"
+              src={imagePath}
+              alt={title}
+              quality={100}
+            />
+          </div>
+        ) : null
+      }
+      <div class="grow w-full">
+        <div class="flex flex-col md:flex-row">
+          <h1 class="text-xl font-bold flex-grow">
+            <span class="text-second">{title}</span>
+            {badge && <div class="badge badge-secondary mx-2">{badge}</div>}
+          </h1>
+          <div>
+            <SvgIcon icon="calendar" />
+            {date}</div>
+        </div>
+        <p class="py-1 text-1xl text-justify"><slot /></p>
+        <div class="card-actions justify-end">
+          {
+            tags &&
+              tags.map((tag) => <div class="badge badge-outline">{tag}</div>)
+          }
+        </div>
+      </div>
+    </div>
+  </a>
+</div>

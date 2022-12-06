@@ -1,6 +1,8 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import CardWorkExprience from "@components/cards/CardWorkExprience.astro";
+import HorizontalCard from "@components/cards/HorizontalCard.astro";
+import CardProject from "@components/cards/CardProject.astro";
 
 const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
   (a, b) =>
@@ -23,11 +25,11 @@ const last_posts = posts.slice(0, 3);
         effectively.
       </text>
     </div>
-    <div class="mt-8">
+    <!-- <div class="mt-8">
       <a class="btn" href="mailto:mh.saadatfar@gmail.com" target="_blank">
         Let's connect!</a
       >
-    </div>
+    </div> -->
   </div>
 
   <section class="mb-4">
@@ -69,17 +71,81 @@ const last_posts = posts.slice(0, 3);
     </CardWorkExprience>
   </section>
 
-  <!-- <div>
-    <div class="text-3xl w-full font-bold mb-2">My last projects {"</>"}</div>
-  </div>
-
-  <HorizontalCard
-    title="Demo Project 1"
-    img="/post_img.webp"
-    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    url="#"
-    badge="NEW"
-  />
+  <section class="mb-4">
+    <h1 class="text-2xl w-full font-bold mb-2">Last Projects</h1>
+    <CardProject
+      title="Solatrix™ Fractional Thermo-mechanical Device"
+      img="solatrix"
+      date="2020-Now"
+    >
+      Solatrix is a fractional thermo-mechanical device that has a significant
+      effect on the rejuvenation and removal of skin lesions by transferring
+      direct heat to the skin. The high-temperature (400°C) titanium tip of the
+      device transfers heat to the skin with extremely low invasion; and by
+      stimulating collagen production, it causes rejuvenation and eliminates
+      wrinkles. The heat can be controlled by the contact time of the tip with
+      the skin and the penetration depth of the tip
+    </CardProject>
+    <CardProject
+      title="Madame X™ Vaginal RF Device"
+      img="madamex"
+      url="https://mersateb.com/en/madamx"
+      date="2019"
+    >
+      Solatrix is a fractional thermo-mechanical device that has a significant
+      effect on the rejuvenation and removal of skin lesions by transferring
+      direct heat to the skin. The high-temperature (400°C) titanium tip of the
+      device transfers heat to the skin with extremely low invasion; and by
+      stimulating collagen production, it causes rejuvenation and eliminates
+      wrinkles. The heat can be controlled by the contact time of the tip with
+      the skin and the penetration depth of the tip
+    </CardProject>
+    <CardProject
+      title="Firebolt™ Plasma Device"
+      img="firebolt"
+      url="https://mersateb.com/en/madamx"
+      date="2018"
+    >
+      The Firebolt plasma device transfers high-frequency plasma energy to the
+      skin. This energy is used in various treatments such as blepharoplasty and
+      the removal of moles, freckles, and wrinkles. The released energy
+      generates a heating action on the skin surface that removes the old,
+      damaged epidermis and dermis cells, thus triggering collagen creation. The
+      exclusive features of the Firebolt plasma device are its high safety,
+      various treatment indications, and its therapeutic performance without
+      side effects.
+    </CardProject>
+    <CardProject
+      title="Nettle™ Fractional RF Device"
+      img="nettle"
+      url="https://mersateb.com/en/nettle"
+      date="2018"
+    >
+      The fractional RF technology applies high-frequency and
+      minimally-intrusive radio waves to specific skin layers to produce heat,
+      which stimulates fibroblasts and produces collagen and elastin.
+      Ultimately, this process significantly contributes to skin rejuvenation.
+      Fractional RF applies radio waves to the skin with fractional needles and
+      can produce different effects in the skin’s lower layers without exposing
+      the skin surface to heat; thus, significantly reducing treatment side
+      effects.
+    </CardProject>
+    <CardProject
+      title="Hurricane™ Carboxytherapy Device"
+      img="hurricane"
+      url="https://mersateb.com/en/hurricane"
+      date="2019"
+    >
+      The device starts a series of interconnected reactions after controlled
+      and continuous injections of CO2 and leads to some changes like
+      vasodilation, an increase in blood flow, and an increase in body
+      temperature. The blood flow increase leads to the oxygenation of the
+      intended area which itself helps the metabolism increase, tissue
+      rejuvenation, and detoxification and it finally causes rejuvenation and
+      cellulitis decrease in the intended tissue.
+    </CardProject>
+  </section>
+  <!--
   <div class="divider my-0"></div>
   <HorizontalCard
     title="Demo Project 2"
